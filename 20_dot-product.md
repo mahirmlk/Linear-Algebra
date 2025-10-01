@@ -1,4 +1,4 @@
-# Vector Dot Product: Basic Demo and Properties
+# Vector Dot Product:
 
 ## Introduction
 
