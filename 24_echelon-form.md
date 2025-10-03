@@ -20,6 +20,7 @@
 - After REF, continue to clear the entries above each pivot (make them 0) and scale pivots to 1. The result directly gives solutions.
 
 ---
+---
 
 ### Example 1: Get REF of a matrix (no system yet)
 Given
@@ -126,10 +127,95 @@ Thus the unique solution is
 - **x = 4**, **y = 1/2**, **z = 3/2**.
 
 ---
+---
+
+- examples: pivots move right, e.g., $ R_2 \leftarrow R_2 - 2R_1 $, rank $\operatorname{rank}(A)=2$, solution $x=4,\ y=\tfrac{1}{2},\ z=\tfrac{3}{2}$.
+
+- Display the matrix in Example 1:
+$$
+A = \begin{bmatrix}
+1 & 2 & 1 \\
+2 & 5 & 4 \\
+1 & 3 & 3
+\end{bmatrix}
+$$
+
+- Row operations to REF for Example 1:
+$$
+R_2 \leftarrow R_2 - 2R_1,\quad R_3 \leftarrow R_3 - R_1,\quad
+\begin{bmatrix}
+1 & 2 & 1 \\
+0 & 1 & 2 \\
+0 & 1 & 2
+\end{bmatrix}
+\xrightarrow{\ R_3 \leftarrow R_3 - R_2\ }
+\begin{bmatrix}
+1 & 2 & 1 \\
+0 & 1 & 2 \\
+0 & 0 & 0
+\end{bmatrix}
+\quad (\text{REF}),\quad \operatorname{rank}(A)=2.
+$$
+
+- Example 2 system (display):
+$$
+\begin{aligned}
+x + 2y - z &= 1,\\
+2x + y + 3z &= 9,\\
+3x + 3y + 2z &= 13.
+\end{aligned}
+$$
+
+- Augmented matrix form and first elimination step:
+$$
+\left[\begin{array}{ccc|c}
+1 & 2 & -1 & 1 \\
+2 & 1 & 3 & 9 \\
+3 & 3 & 2 & 13
+\end{array}\right]
+\xrightarrow{\ \substack{R_2 \leftarrow R_2 - 2R_1\\ R_3 \leftarrow R_3 - 3R_1}\ }
+\left[\begin{array}{ccc|c}
+1 & 2 & -1 & 1 \\
+0 & -3 & 5 & 7 \\
+0 & -3 & 5 & 10
+\end{array}\right]
+$$
+
+- Second elimination to reveal inconsistency:
+$$
+\left[\begin{array}{ccc|c}
+1 & 2 & -1 & 1 \\
+0 & -3 & 5 & 7 \\
+0 & -3 & 5 & 10
+\end{array}\right]
+\xrightarrow{\ R_3 \leftarrow R_3 - R_2\ }
+\left[\begin{array}{ccc|c}
+1 & 2 & -1 & 1 \\
+0 & -3 & 5 & 7 \\
+0 & 0 & 0 & 3
+\end{array}\right]
+\quad\Rightarrow\quad 0=3\ (\text{inconsistent}).
+$$
+
+- Consistent system solved to RREF (final result):
+$$
+\left[\begin{array}{ccc|c}
+1 & 0 & 0 & 4 \\
+0 & 1 & 0 & \tfrac{1}{2} \\
+0 & 0 & 1 & \tfrac{3}{2}
+\end{array}\right]
+\quad\Rightarrow\quad x=4,\ y=\tfrac{1}{2},\ z=\tfrac{3}{2}.
+$$
+
+
+---
 
 ### Quick checklist
 - **REF**: zeros below each pivot; pivots move strictly right as you go down.
 - **RREF**: REF plus each pivot is 1 and the only nonzero in its column.
 - **Solutions**: read directly from RREF of the augmented matrix; watch for rows like [0 0 … 0 | c] with c ≠ 0 (inconsistent) or free variables (infinitely many solutions).
+
+
+
 
 
